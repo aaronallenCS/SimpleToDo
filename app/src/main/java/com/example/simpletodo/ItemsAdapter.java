@@ -19,6 +19,10 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder>
     public interface OnLongClickListener {
         void onItemLongClicked(int position);
     }
+
+    public interface OnClickListener{
+        void onItemClicked(int position);
+    }
     List<String> items;
     OnLongClickListener longClickListener;
     OnClickListener clickListener;
@@ -34,7 +38,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder>
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        View todoView = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+        View todoView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         return new ViewHolder(todoView);
     }
 
@@ -59,7 +63,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder>
         public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
-            tvItem = itemView.findViewById(android.R.id.text1);
+            tvItem = itemView.findViewById(R.id.holderItem);
         }
 
         public void bind(String item)
